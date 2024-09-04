@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABERNA AITOR - Horarios de Partidos</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a FontAwesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .hero {
+            position: relative;
+            background: url('media/fondo.jpg') center center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Superposición negra semitransparente */
+            z-index: 1;
+        }
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
+        }
+        .hero h1 {
+            font-size: 4rem;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .card-custom {
+            margin: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-header-custom {
+            background-color: #ff4d4d;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>TABERNA AITOR</h1>
+        <p class="lead">¡Vive la pasión de los partidos del Athletic Club!</p>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Próximos Partidos</h2>
+        <!-- Centrando las tarjetas -->
+        <div class="row justify-content-center">
+            <!-- Tarjeta de ejemplo 1 -->
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header-custom">15 de Septiembre - 19:30</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Las Palmas vs Athletic Club</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de ejemplo 2 -->
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header-custom">19 de Septiembre - 19:00</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Leganés vs Athletic Club</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Acceso al Calendario Completo Mejorada -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="position-relative overflow-hidden text-center text-white p-5" style="border-radius: 15px; background: linear-gradient(to right, rgba(248, 0, 0, 0.8), rgba(210, 84, 6, 0.8)), url('media/calendario.jpg') center/cover;">
+                    <!-- Icono de calendario -->
+                    <i class="fas fa-calendar-alt fa-3x mb-3"></i>
+                    <h3 class="mb-3 font-weight-bold">¡No te pierdas ni un partido!</h3>
+                    <p class="mb-4">Explora el calendario completo de los partidos del Athletic Club y asegura tu asiento en los momentos más emocionantes.</p>
+                    <a href="calendarioCompleto.html" class="btn btn-outline-light btn-lg">Ver Calendario Completo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <button id="addToHomeScreen" class="btn btn-primary btn-lg mb-4">
+                    Añadir a la pantalla de inicio
+                </button>
+               
+                    <img src="media/ShotsFinal.png" alt="ShotsFinal" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer Básico -->
+    <footer class="footer mt-5 py-3" style="background-color: #333; color: white; text-align: center;">
+        <div class="container">
+            <p class="mb-1">© 2024 Taberna Aitor. Todos los derechos reservados.</p>
+            <p class="mb-0"><a href="https://github.com/aiittoor10" class="text-white">github\aiittoor10</a></p>
+        </div>
+    </footer>
+
+    <!-- Enlace a jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="pantallaInicio.js"></script>
+</body>
+</html>

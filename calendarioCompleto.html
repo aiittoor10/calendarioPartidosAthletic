@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claendario Athletic</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .team-logo {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Estilo personalizado para resaltar el botón */
+        .highlight-button {
+            display: none;
+            /* Oculto por defecto */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff5722;
+            color: white;
+            font-size: 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        /* Animación para hacer que el botón "pulse" */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(255, 87, 34, 1);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+            }
+        }
+
+        /* Forzar que las tarjetas tengan la misma altura */
+        .card {
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Tarjeta 1 -->
+            <div class="col-12 col-md-4 mb-4 d-flex align-items-stretch">
+                <a href="laliga.html" class="text-decoration-none flex-fill">
+                    <div class="card h-100 shadow-sm">
+                        <img src="media/icon-laliga.png" class="card-img-top" alt="Icono de LaLiga">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">LaLiga</h5>
+                            <p class="card-text text-muted">Próximos partidos</p>
+                            <div class="table-responsive">
+                                <table class="table table-borderless table-hover align-middle">
+                                    <tbody>
+                                        <tr>
+                                            <td>15/09</td>
+                                            <td>19:30</td>
+                                            <td>
+                                                <img src="media/lasPalmas.png" alt="U.D Las Palmas"
+                                                    class="team-logo me-2">
+                                                U.D Las Palmas
+                                            </td>
+                                            <td>
+                                                <img src="media/ath.png" alt="Athletic Club" class="team-logo me-2">
+                                                Athletic Club
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>19/09</td>
+                                            <td>19:00</td>
+                                            <td>
+                                                <img src="media/leganes.png" alt="Leganés" class="team-logo me-2">
+                                                Leganés
+                                            </td>
+                                            <td>
+                                                <img src="media/ath.png" alt="Athletic Club" class="team-logo me-2">
+                                                Athletic Club
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-primary text-white text-center">
+                            Consultar más horarios
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="col-12 col-md-4 mb-4 d-flex align-items-stretch">
+                <a href="europa.html" class="text-decoration-none flex-fill">
+                    <div class="card h-100 shadow-sm">
+                        <img src="media/icon-europaLeague.png" class="card-img-top" alt="Icono de LaLiga">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Europa League</h5>
+                            <p class="card-text text-muted">Próximos partidos</p>
+                            <div class="table-responsive">
+                                <table class="table table-borderless table-hover align-middle">
+                                    <tbody>
+                                        <tr>
+                                            <td>26/09</td>
+                                            <td>21:00</td>
+                                            <td>
+                                                <img src="media/roma.png" alt="Roma" class="team-logo me-2">
+                                                Roma
+                                            </td>
+                                            <td>
+                                                <img src="media/ath.png" alt="Athletic Club" class="team-logo me-2">
+                                                Athletic Club
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>03/10</td>
+                                            <td>21:00</td>
+                                            <td>
+                                                <img src="media/ath.png" alt="Athletic Club" class="team-logo me-2">
+                                                Athletic Club
+                                            </td>
+                                            <td>
+                                                <img src="media/az.png" alt="AZ Akmaar" class="team-logo me-2">
+                                                AZ Akmaar
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-primary text-white text-center">
+                            Consultar más horarios
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="col-12 col-md-4 mb-4 d-flex align-items-stretch">
+                <a href="#" class="text-decoration-none flex-fill">
+                    <div class="card h-100 shadow-sm">
+                        <img src="media/icon-copa.png" class="card-img-top" alt="Icono de LaLiga">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Copa</h5>
+                            <p class="card-text text-muted">Próximos partidos</p>
+                            <div class="table-responsive">
+                               <!-- <table class="table table-borderless table-hover align-middle">
+                                    <tbody>
+                                        <tr>
+                                            <td>28/09</td>
+                                            <td>20:30</td>
+                                            <td>
+                                                <img src="media/equipo5_logo.png" alt="Equipo 5" class="team-logo me-2">
+                                                Equipo 5
+                                            </td>
+                                            <td>
+                                                <img src="media/equipo6_logo.png" alt="Equipo 6" class="team-logo me-2">
+                                                Equipo 6
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>30/09</td>
+                                            <td>17:00</td>
+                                            <td>
+                                                <img src="media/equipo7_logo.png" alt="Equipo 7" class="team-logo me-2">
+                                                Equipo 7
+                                            </td>
+                                            <td>
+                                                <img src="media/equipo8_logo.png" alt="Equipo 8" class="team-logo me-2">
+                                                Equipo 8
+                                            </td>
+                                        </tr>
+                                    </tbody>-->
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-primary text-white text-center">
+                            Consultar más horarios
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="col-12 col-md-4 mb-4 d-flex align-items-stretch">
+            <a href="#" class="text-decoration-none flex-fill">
+                <div class="card h-100 shadow-sm">
+                    <img src="media/ssupercopa.png" class="card-img-top" alt="Icono de LaLiga">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Super Copa</h5>
+                        <p class="card-text text-muted">Próximos partidos</p>
+                        <div class="table-responsive">
+                            <!--<table class="table table-borderless table-hover align-middle">
+                                <tbody>
+                                    <tr>
+                                        <td>28/09</td>
+                                        <td>20:30</td>
+                                        <td>
+                                            <img src="media/equipo5_logo.png" alt="Equipo 5" class="team-logo me-2">
+                                            Equipo 5
+                                        </td>
+                                        <td>
+                                            <img src="media/equipo6_logo.png" alt="Equipo 6" class="team-logo me-2">
+                                            Equipo 6
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>30/09</td>
+                                        <td>17:00</td>
+                                        <td>
+                                            <img src="media/equipo7_logo.png" alt="Equipo 7" class="team-logo me-2">
+                                            Equipo 7
+                                        </td>
+                                        <td>
+                                            <img src="media/equipo8_logo.png" alt="Equipo 8" class="team-logo me-2">
+                                            Equipo 8
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>-->
+                        </div>
+                    </div>
+                    <div class="card-footer bg-primary text-white text-center">
+                        Consultar más horarios
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+    <footer class="footer mt-5 py-3" style="background-color: #333; color: white; text-align: center;">
+        <div class="container">
+            <p class="mb-1">© 2024 Taberna Aitor. Todos los derechos reservados.</p>
+            <p class="mb-0"><a href="https://github.com/aiittoor10" class="text-white">github\aiittoor10</a></p>
+        </div>
+    </footer>
+                
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Para iconos -->
+
+
+</body>
+
+</html>
