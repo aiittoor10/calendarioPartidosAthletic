@@ -16,7 +16,6 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAAgAAABAA...">
 
     <style>
         body {
@@ -121,9 +120,12 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
-                <button id="addToHomeScreen center" class="btn btn-primary btn-lg mb-4">
+                <!-- Botón para añadir a la pantalla de inicio -->
+                <button id="addToHomeScreen" class="btn btn-primary btn-lg mb-4 center" style="display: none;">
                     Añadir a la pantalla de inicio
                 </button>
+
+                <!-- Imagen -->
                 <img src="media/ShotsFinal.png" alt="ShotsFinal" class="img-fluid rounded">
             </div>
         </div>
@@ -137,67 +139,57 @@
         </div>
     </footer>
 
+    <!-- Script para PWA y botón de añadir a la pantalla de inicio -->
+    <script>
+        let deferredPrompt;
+
+        // Esperar a que el DOM esté completamente cargado
+        window.addEventListener('load', () => {
+            const addToHomeScreenButton = document.getElementById('addToHomeScreen');
+
+            // Detectar si el navegador soporta el evento beforeinstallprompt
+            window.addEventListener('beforeinstallprompt', (e) => {
+                console.log('Evento beforeinstallprompt detectado');
+                // Prevenir que el navegador muestre el banner de instalación por defecto
+                e.preventDefault();
+                deferredPrompt = e;
+
+                // Mostrar el botón de agregar a la pantalla de inicio
+                addToHomeScreenButton.style.display = 'block';
+
+                // Manejar el clic en el botón
+                addToHomeScreenButton.addEventListener('click', () => {
+                    // Mostrar el prompt de instalación
+                    deferredPrompt.prompt();
+
+                    // Esperar la elección del usuario
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('El usuario aceptó la instalación');
+                        } else {
+                            console.log('El usuario rechazó la instalación');
+                        }
+                        deferredPrompt = null; // Reiniciar el prompt
+                    });
+                });
+            });
+
+            // Registro del Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').then((registration) => {
+                    console.log('Service Worker registrado con éxito:', registration.scope);
+                }).catch((error) => {
+                    console.log('Error en el registro del Service Worker:', error);
+                });
+            } else {
+                console.warn('Service Workers no están soportados en este navegador.');
+            }
+        });
+    </script>
+
     <!-- Enlace a jQuery y Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <!-- Script para PWA y botón de añadir a la pantalla de inicio -->
-    <script>
-        let deferredPrompt;
-    
-        // Esperar a que el DOM esté listo antes de acceder al botón
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const addToHomeScreenButton = document.getElementById('addToHomeScreen');
-    
-            if (!addToHomeScreenButton) {
-                console.error('No se encontró el botón de "Agregar a la pantalla de inicio".');
-                return;
-            }
-    
-            // Ocultar el botón hasta que se detecte el evento beforeinstallprompt
-            addToHomeScreenButton.style.display = 'none';
-    
-            // Detectar si la aplicación puede ser añadida a la pantalla de inicio
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-    
-                // Mostrar el botón cuando el evento sea detectado
-                addToHomeScreenButton.style.display = 'block';
-            });
-    
-            // Manejar el clic en el botón para añadir a la pantalla de inicio
-            addToHomeScreenButton.addEventListener('click', (e) => {
-                if (deferredPrompt) {
-                    deferredPrompt.prompt(); // Muestra el prompt de instalación
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('Usuario aceptó la instalación');
-                        } else {
-                            console.log('Usuario rechazó la instalación');
-                        }
-                        deferredPrompt = null;
-                    });
-                } else {
-                    alert('Lo sentimos, la instalación no es compatible con su navegador.');
-                }
-            });
-        });
-    
-        // Registro del Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                    console.log('Service Worker registrado con éxito:', registration.scope);
-                }, function(error) {
-                    console.log('Error en el registro del Service Worker:', error);
-                });
-            });
-        } else {
-            console.warn('Service Workers no están soportados en este navegador.');
-        }
-    </script>
-    
 </body>
 </html>
