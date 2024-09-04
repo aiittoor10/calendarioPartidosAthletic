@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TABERNA AITOR - Horarios de Partidos</title>
-    <!-- Enlace a Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Enlace a FontAwesome para los iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Enlace al archivo manifest -->
-    <link rel="manifest" href="manifest.json">
-    <!-- Meta tags para iOS -->
+
+    <link rel="icon" type="image/png" href="media/shots.ico" sizes="16x16">
+    <link rel="icon" type="image/png" href="media/shots.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="media/shots.ico" sizes="48x48">
+    <link rel="apple-touch-icon" href="media/shots.ico">
+    
+    <!-- Manifest para PWA -->
+    <link rel="manifest" href="#manifest">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="media/icon-192x192.png">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAAgAAABAA...">
+
     <style>
         body {
             background-color: #f8f9fa;
         }
-
         .hero {
             position: relative;
             background: url('media/fondo.jpg') center center/cover no-repeat;
@@ -28,7 +30,6 @@
             text-align: center;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -37,34 +38,26 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.5);
-            /* Superposición negra semitransparente */
             z-index: 1;
         }
-
-        .hero h1,
-        .hero p {
+        .hero h1, .hero p {
             position: relative;
             z-index: 2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            /* Sombra para mejor legibilidad */
         }
-
         .hero h1 {
             font-size: 4rem;
         }
-
         .hero p {
             font-size: 1.5rem;
             margin-top: 20px;
         }
-
         .card-custom {
             margin: 20px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .card-header-custom {
             background-color: #ff4d4d;
             color: white;
@@ -72,19 +65,14 @@
             padding: 10px;
             font-size: 1.2rem;
         }
-
-        /* Estilo personalizado para el botón azul */
         #addToHomeScreen {
+            display: none;
             background-color: #007bff;
-            /* Azul Bootstrap */
             border-color: #007bff;
-            /* Azul Bootstrap */
             color: white;
-            /* Color de texto blanco para contraste */
         }
     </style>
 </head>
-
 <body>
     <!-- Hero Section -->
     <div class="hero">
@@ -95,9 +83,7 @@
     <!-- Contenido principal -->
     <div class="container mt-5">
         <h2 class="text-center mb-4">Próximos Partidos</h2>
-        <!-- Centrando las tarjetas -->
         <div class="row justify-content-center">
-            <!-- Tarjeta de ejemplo 1 -->
             <div class="col-md-4">
                 <div class="card card-custom">
                     <div class="card-header-custom">15 de Septiembre - 19:30</div>
@@ -106,8 +92,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Tarjeta de ejemplo 2 -->
             <div class="col-md-4">
                 <div class="card card-custom">
                     <div class="card-header-custom">19 de Septiembre - 19:00</div>
@@ -123,20 +107,17 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="position-relative overflow-hidden text-center text-white p-5"
-                    style="border-radius: 15px; background: linear-gradient(to right, rgba(248, 0, 0, 0.8), rgba(210, 84, 6, 0.8)), url('media/calendario.jpg') center/cover;">
-                    <!-- Icono de calendario -->
+                <div class="position-relative overflow-hidden text-center text-white p-5" style="border-radius: 15px; background: linear-gradient(to right, rgba(248, 0, 0, 0.8), rgba(210, 84, 6, 0.8)), url('media/calendario.jpg') center/cover;">
                     <i class="fas fa-calendar-alt fa-3x mb-3"></i>
                     <h3 class="mb-3 font-weight-bold">¡No te pierdas ni un partido!</h3>
-                    <p class="mb-4">Explora el calendario completo de los partidos del Athletic Club y asegura tu
-                        asiento en los momentos más emocionantes.</p>
+                    <p class="mb-4">Explora el calendario completo de los partidos del Athletic Club y asegura tu asiento en los momentos más emocionantes.</p>
                     <a href="calendarioCompleto.html" class="btn btn-outline-light btn-lg">Ver Calendario Completo</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Botón de Añadir a Pantalla de Inicio -->
+    <!-- Botón de Añadir a la Pantalla de Inicio -->
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
@@ -160,52 +141,48 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Enlace al archivo de JavaScript -->
+    
+    <!-- Script para PWA y botón de añadir a la pantalla de inicio -->
     <script>
         let deferredPrompt;
 
-// Mostrar siempre el botón
-const addToHomeScreenButton = document.getElementById('addToHomeScreen');
-addToHomeScreenButton.style.display = 'block'; // Asegúrate de que el botón sea visible
+        // Mostrar siempre el botón
+        const addToHomeScreenButton = document.getElementById('addToHomeScreen');
+        addToHomeScreenButton.style.display = 'block'; // Asegúrate de que el botón sea visible
 
-// Detectar si la aplicación puede ser añadida a la pantalla de inicio
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('Evento beforeinstallprompt detectado'); // Para depuración
-    e.preventDefault();
-    deferredPrompt = e;
-});
+        // Detectar si la aplicación puede ser añadida a la pantalla de inicio
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
 
-// Manejar el clic en el botón para añadir a la pantalla de inicio
-addToHomeScreenButton.addEventListener('click', (e) => {
-    // Si se puede mostrar el prompt de instalación
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('Usuario aceptó la instalación');
+        // Manejar el clic en el botón para añadir a la pantalla de inicio
+        addToHomeScreenButton.addEventListener('click', (e) => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt(); // Muestra el prompt de instalación
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Usuario aceptó la instalación');
+                    } else {
+                        console.log('Usuario rechazó la instalación');
+                    }
+                    deferredPrompt = null;
+                });
             } else {
-                console.log('Usuario rechazó la instalación');
+                alert('Lo sentimos, la instalación no es compatible con su navegador.');
             }
-            deferredPrompt = null;
         });
-    } else {
-        // Si no hay evento `beforeinstallprompt`, mostrar un mensaje
-        alert('Para añadir esta aplicación a la pantalla de inicio, use la función de su navegador para crear un acceso directo.');
-    }
-});
 
-// Registro del Service Worker
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            console.log('Service Worker registrado con éxito:', registration.scope);
-        }, function(error) {
-            console.log('Error en el registro del Service Worker:', error);
-        });
-    });
-}
-
+        // Registro del Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('Service Worker registrado con éxito:', registration.scope);
+                }, function(error) {
+                    console.log('Error en el registro del Service Worker:', error);
+                });
+            });
+        }
     </script>
 </body>
-
 </html>
