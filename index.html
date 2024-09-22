@@ -6,76 +6,18 @@
     <title>TABERNA AITOR - Horarios de Partidos</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 
     <link rel="icon" type="image/png" href="media/shots.ico" sizes="16x16">
     <link rel="icon" type="image/png" href="media/shots.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="media/shots.ico" sizes="48x48">
     <link rel="apple-touch-icon" href="media/shots.ico">
-    
-    <!-- Manifest para PWA -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .hero {
-            position: relative;
-            background: url('media/fondo.jpg') center center/cover no-repeat;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        .hero h1, .hero p {
-            position: relative;
-            z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        .hero h1 {
-            font-size: 4rem;
-        }
-        .hero p {
-            font-size: 1.5rem;
-            margin-top: 20px;
-        }
-        .card-custom {
-            margin: 20px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .card-header-custom {
-            background-color: #ff4d4d;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 1.2rem;
-        }
-        #addToHomeScreen {
-            display: none;
-            background-color: #007bff;
-            border-color: #007bff;
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero">
-        <h1>TABERNA AITOR</h1>
+        <h1 class="text-white">TABERNA AITOR</h1>
         <p class="lead">¡Vive la pasión de los partidos del Athletic Club!</p>
     </div>
 
@@ -84,22 +26,47 @@
         <h2 class="text-center mb-4">Próximos Partidos</h2>
         <div class="row justify-content-center">
 
+
             <div class="col-md-4">
                 <div class="card card-custom">
-                    <div class="card-header-custom">29 de Septiembre - 16:15</div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Athletic Club Sevilla</h5>
+                    <div class="card-header-custom1"></div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title1">26 de Septiembre - 21:00</h5>
+                        <div class="team-logos">
+                            <div class="team">
+                                <img src="media/roma.png" alt="AS ROMA" class="team-logo">
+                                <span class="team-name">AS ROMA</span>
+                            </div>
+                            <div class="team">
+                                <img src="media/ath.png" alt="Athletic Club" class="team-logo">
+                                <span class="team-name">ATHLETIC CLUB</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-4">
                 <div class="card card-custom">
-                    <div class="card-header-custom">26 de Septiembre - 21:00</div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">AS ROMA ATHLETIC CLUB</h5>
+                    <div class="card-header-custom2"></div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title1">29 de Septiembre - 16:15</h5>
+                        <div class="team-logos">
+                            <div class="team">
+                                <img src="media/sevilla.png" alt="Sevilla" class="team-logo">
+                                <span class="team-name">SEVILLA</span>
+                            </div>
+                            <div class="team">
+                                <img src="media/ath.png" alt="Athletic Club" class="team-logo">
+                                <span class="team-name">ATHLETIC CLUB</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            
+            
+            
 
         </div>
     </div>
@@ -141,53 +108,7 @@
         </div>
     </footer>
 
-    <!-- Script para PWA y botón de añadir a la pantalla de inicio -->
-    <script>
-        let deferredPrompt;
 
-        // Esperar a que el DOM esté completamente cargado
-        window.addEventListener('load', () => {
-            const addToHomeScreenButton = document.getElementById('addToHomeScreen');
-
-            // Detectar si el navegador soporta el evento beforeinstallprompt
-            window.addEventListener('beforeinstallprompt', (e) => {
-                console.log('Evento beforeinstallprompt detectado');
-                // Prevenir que el navegador muestre el banner de instalación por defecto
-                e.preventDefault();
-                deferredPrompt = e;
-
-                // Mostrar el botón de agregar a la pantalla de inicio
-                addToHomeScreenButton.style.display = 'block';
-
-                // Manejar el clic en el botón
-                addToHomeScreenButton.addEventListener('click', () => {
-                    // Mostrar el prompt de instalación
-                    deferredPrompt.prompt();
-
-                    // Esperar la elección del usuario
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('El usuario aceptó la instalación');
-                        } else {
-                            console.log('El usuario rechazó la instalación');
-                        }
-                        deferredPrompt = null; // Reiniciar el prompt
-                    });
-                });
-            });
-
-            // Registro del Service Worker
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js').then((registration) => {
-                    console.log('Service Worker registrado con éxito:', registration.scope);
-                }).catch((error) => {
-                    console.log('Error en el registro del Service Worker:', error);
-                });
-            } else {
-                console.warn('Service Workers no están soportados en este navegador.');
-            }
-        });
-    </script>
 
     <!-- Enlace a jQuery y Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
