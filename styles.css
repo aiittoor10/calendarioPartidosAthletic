@@ -46,3 +46,101 @@ h1 {
     color: white !important;
 }
 
+.hero {
+    position: relative;
+    background: url('media/fondo.jpg') center center/cover no-repeat;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.hero h1, .hero p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.hero h1 {
+    font-size: 4rem;
+}
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+.card-custom {
+    margin: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-header-custom1 {
+    background: url('media/logoeu.jpg') center/cover no-repeat;
+    height: 150px; /* Ajusta la altura según lo que necesites */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+
+.card-header-custom2 {
+    background: url('media/LL.webp') center/cover no-repeat;
+    height: 150px; /* Ajusta la altura según lo que necesites */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+#addToHomeScreen {
+    display: none;
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.card-title1 {
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+.team-logos {
+    display: flex;
+    justify-content: space-around; /* Separa los equipos de manera equitativa */
+    align-items: center;
+    gap: 20px; /* Espacio entre los equipos */
+}
+
+.team {
+    display: flex;
+    flex-direction: column; /* Coloca el escudo encima del nombre */
+    align-items: center; /* Centra el escudo y el nombre */
+}
+
+.team-logo {
+    width: 50px; /* Tamaño uniforme para los escudos */
+    height: 50px;
+    object-fit: contain; /* Asegura que los escudos mantengan su proporción */
+}
+
+.team-name {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333; /* Color del texto de los nombres de los equipos */
+}
+
+.card-header-custom1, .card-header-custom2 {
+    background-size: cover;
+    height: 150px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
