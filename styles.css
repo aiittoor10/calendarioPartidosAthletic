@@ -144,3 +144,73 @@ h1 {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
+
+/* Diseño general de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Fondo gris claro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tabla */
+table thead th {
+    background-color: #343a40; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-weight: bold;
+    padding: 12px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+}
+
+/* Filas y celdas */
+table tbody td {
+    padding: 10px;
+    text-align: center;
+    color: #343a40; /* Texto oscuro */
+    font-size: 0.85rem;
+}
+
+/* Alternancia de color en filas */
+table tbody tr:nth-child(even) {
+    background-color: #e9ecef; /* Fondo gris claro */
+}
+
+/* Hover en las filas */
+table tbody tr:hover {
+    background-color: #dee2e6; /* Fondo más oscuro en hover */
+}
+
+/* Bordes */
+table,
+th,
+td {
+    border: 1px solid #ced4da;
+}
+
+/* Diferencia de goles en negrita */
+table tbody td:nth-child(8) {
+    font-weight: bold;
+}
+
+/* Encabezado fijo para scroll */
+table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Estilo para puntaje */
+table tbody td:last-child {
+    font-weight: bold;
+    color: #007bff; /* Azul distintivo */
+}
+
+.team-logo1 {
+    width: 40px; /* Tamaño uniforme para los escudos */
+    height: 40px;
+    object-fit: contain; /* Asegura que los escudos mantengan su proporción */
+}
