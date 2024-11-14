@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para las cartas de los próximos partidos */
+.container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* Custom Card Styles */
+.card-custom {
+    margin: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header with Background Image */
+.card-header-custom1 {
+    background: url('media/logoeu.jpg') center/cover no-repeat;
+    height: 150px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-header-custom2 {
+    background: url('media/LL.webp') center/cover no-repeat;
+    height: 150px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Button for Add to Home Screen */
+#addToHomeScreen {
+    display: none;
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+/* Card Title */
+.card-title1 {
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333333;
+}
+
+/* Team Logos Section in the Cards */
+.card-custom .team-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-custom .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-custom .team-logo {
+    width: 50px; /* Tamaño del logo en las tarjetas */
+    height: 50px;
+    object-fit: contain;
+}
+
+.card-custom .team-name {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* Tabla de clasificación de la liga */
+.table {
+    border-collapse: collapse; /* Elimina los bordes entre las celdas */
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    table-layout: fixed; /* Hace que todas las columnas tengan el mismo ancho */
+}
+
+/* Header Styles */
+.table thead th {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    padding: 8px;
+    background-color: #003366; /* Color de fondo para la cabecera */
+    color: #fff;
+}
+
+/* Cell Styles */
+.table td, .table th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0; /* Elimina el relleno en las celdas */
+}
+
+/* Primera columna con escudos en la tabla de clasificación */
+.table td:first-child {
+    padding: 0;               /* Elimina el padding de la celda */
+    text-align: center;        /* Centra el contenido horizontalmente */
+    vertical-align: middle;    /* Centra el contenido verticalmente */
+    height: 50px;              /* Ajusta la altura de la celda */
+    width: 50px;               /* Ajusta el ancho de la celda */
+}
+
+/* Asegura que el escudo en la tabla ocupe toda la celda */
+.table td .team-logo {
+    width: 100%;               /* El logo ocupa el 100% del ancho de la celda en la tabla */
+    height: 100%;              /* El logo ocupa el 100% de la altura de la celda en la tabla */
+    object-fit: contain;       /* Mantiene la proporción del logo */
+    display: block;            /* Asegura que se comporte como un bloque */
+    margin: 0;                 /* Elimina márgenes del logo */
+}
+
+/* Smaller Cells */
+.table tbody td {
+    font-size: 0.9rem; /* Tamaño de texto ajustado */
+    color: #333;
+    padding: 6px; /* Ajusta el relleno de las celdas */
+    border: none; /* Elimina bordes entre celdas */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table thead th, .table tbody td {
+        font-size: 0.8rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+        padding: 4px; /* Menor relleno en celdas */
+    }
+    /* Ajusta el tamaño de los logos en la tabla para pantallas pequeñas */
+    .table td .team-logo {
+        width: 100%; 
+        height: 100%;
+    }
+    /* Ajusta el tamaño de los logos en las tarjetas para pantallas pequeñas */
+    .card-custom .team-logo {
+        width: 40px;
+        height: 40px;
+    }
+}
